@@ -16,7 +16,13 @@ public class AttachCollider : MonoBehaviour
         }
 
         if (attachTo != null)
+        {
             this.transform.position = attachTo.transform.position;
+            this.transform.eulerAngles = new Vector3(attachTo.transform.rotation.x, attachTo.transform.rotation.y, attachTo.transform.rotation.z);
+                
+                
+        }
+           
     }
 
 }
