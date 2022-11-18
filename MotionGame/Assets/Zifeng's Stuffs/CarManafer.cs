@@ -8,6 +8,8 @@ public class CarManafer : MonoBehaviour
 {
     public static int score = 0;
     public static int health = 5;
+
+    public static float canBeHit;
     public TMP_Text text;
 
     public Transform[] positions;
@@ -29,8 +31,9 @@ public class CarManafer : MonoBehaviour
     {
       
         text.text = "Score: " + score + "\nHealth: " + health;
-        gameDiff += Time.fixedDeltaTime/15;
-
+        gameDiff += Time.fixedDeltaTime/5;
+        canBeHit -= Time.fixedDeltaTime;
+        Debug.Log(canBeHit);
         if (health <= 0)
         { 
         

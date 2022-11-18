@@ -16,11 +16,19 @@ public class Coll : MonoBehaviour
             Car car = other.GetComponent<Car>();
             if (isH || car.isG == false)
             {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>().SetTrigger("shake");
-                CarManafer.health -= 1;
+                if (CarManafer.canBeHit < 0)
+                {
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>().SetTrigger("shake");
+                    CarManafer.health -= 1;
+                    CarManafer.canBeHit = 1f;
+                }
             }
 
-            else CarManafer.score++;
+            else
+            {
+                CarManafer.canBeHit = 1f;
+                CarManafer.score++;
+            }
 
             Vector3 newVector = this.gameObject.transform.position - other.gameObject.transform.position;
             car.rb.freezeRotation = false;

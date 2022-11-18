@@ -27,7 +27,7 @@ public class Car : MonoBehaviour
         if (isMoving)
         {
             float speedN = speed + carM.gameDiff;
-            rb.velocity = transform.forward * -speedN;
+            rb.velocity = transform.forward * -1.45f * speedN;
         }
      
     }
