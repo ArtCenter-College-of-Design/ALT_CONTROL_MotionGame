@@ -18,7 +18,7 @@ public class offset : MonoBehaviour
     {
         Vector3 PosNow = transform.localPosition;
         Vector3 offset = PosNow - startPos;
-        Vector3 offsetModi = new Vector3(offset.x * 5f, offset.y * 2f, 0);
+        Vector3 offsetModi = new Vector3(offset.x * 5f, offset.y * 2f, offset.z);
         spine.transform.localPosition = bonePos + offsetModi;
     }
 }
