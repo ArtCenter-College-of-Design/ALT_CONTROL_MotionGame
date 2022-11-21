@@ -54,7 +54,7 @@ public class Car : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Car>() != null)
         {
-            CarManafer.score++;
+            carM.sco++;
             Car car = other.GetComponent<Car>();
             if (car != null)
             {

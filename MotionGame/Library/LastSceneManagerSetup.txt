@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Zifeng's Stuffs/Game.unity
+- path: Assets/HC/Start.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class CarManafer : MonoBehaviour
 {
-    public static int score = 0;
-    public static int health = 5;
+    public int sco = 0;
+    public int hea = 5;
 
     public static float canBeHit;
     public TMP_Text text;
@@ -30,14 +32,15 @@ public class CarManafer : MonoBehaviour
     void FixedUpdate()
     {
       
-        text.text = "Score: " + score + "\nHealth: " + health;
-        gameDiff += Time.fixedDeltaTime/5;
+        text.text = "Score: " + sco + "\nHealth: " + hea;
+        gameDiff += Time.fixedDeltaTime/3;
         canBeHit -= Time.fixedDeltaTime;
         Debug.Log(canBeHit);
-        if (health <= 0)
-        { 
-        
-        //end scene;
+        if (hea <= 0)
+        {
+            if (GameObject.FindGameObjectWithTag("score") != null) GameObject.FindGameObjectWithTag("score").GetComponent<score>()._score = sco;
+            SceneManager.LoadScene(2);
+            //end scene;
         }
 
         for (int i = 0; i < times.Length; i++)
@@ -45,7 +48,9 @@ public class CarManafer : MonoBehaviour
             times[i] -= Time.fixedDeltaTime;
             if (times[i] < 0)
             {
-                times[i] = Random.Range(.3f, 10f);
+                float time = 10f - gameDiff;
+                if (time < 4) time = 4;
+                times[i] = Random.Range(.3f, time);
                 GameObject car = Instantiate(cars[Random.Range(0,cars.Length)], new Vector3(positions[i].position.x, positions[i].position.y, positions[i].transform.position.z), Quaternion.identity) as GameObject;
                 car.GetComponent<Car>().carM = this;
             }

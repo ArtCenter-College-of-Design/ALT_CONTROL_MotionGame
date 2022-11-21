@@ -19,7 +19,7 @@ public class Coll : MonoBehaviour
                 if (CarManafer.canBeHit < 0)
                 {
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>().SetTrigger("shake");
-                    CarManafer.health -= 1;
+                    GameObject.FindGameObjectWithTag("cm").GetComponent<CarManafer>().hea -= 1;
                     CarManafer.canBeHit = 1f;
                 }
             }
@@ -27,7 +27,7 @@ public class Coll : MonoBehaviour
             else
             {
                 CarManafer.canBeHit = 1f;
-                CarManafer.score++;
+                GameObject.FindGameObjectWithTag("cm").GetComponent<CarManafer>().sco++;
             }
 
             Vector3 newVector = this.gameObject.transform.position - other.gameObject.transform.position;

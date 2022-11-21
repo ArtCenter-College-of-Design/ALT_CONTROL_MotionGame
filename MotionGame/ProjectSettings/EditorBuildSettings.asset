@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/HC/Start.unity
+    guid: 3fd7c9da666f2e44292ba8d8dac2fd49
+  - enabled: 1
     path: Assets/Zifeng's Stuffs/Game.unity
     guid: 2033693a9f895ba419446cc5194abc7d
+  - enabled: 1
+    path: Assets/HC/End.unity
+    guid: 5524d204da8cdce4ebe5f18e066e2158
   m_configObjects: {}
